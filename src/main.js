@@ -7,9 +7,17 @@ import vuetify from "@/commons/plugins/vuetify";
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: (h) => h(App),
-}).$mount("#app");
+async function start() {
+  try {
+    new Vue({
+      router,
+      store,
+      vuetify,
+      render: (h) => h(App),
+    }).$mount("#app");
+  } catch (error) {
+    console.log(`ERROR AT RENDERING APP => [ ${error} ]`);
+  }
+}
+
+start();
