@@ -1,19 +1,21 @@
 <template>
   <div>
     <app-header></app-header>
-    <v-card v-for="(pokemon, index) of allPokemons.results" :key="index">
-      <v-card-title> {{ pokemon.name }} </v-card-title>
-      <v-card-subtitle></v-card-subtitle>
-    </v-card>
+    <v-row align="center" class="mt-6">
+      <v-col cols="12" sm="4" v-for="(pokemon, index) of allPokemons" :key="index">
+        <pokemon-card :pokemon="pokemon" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import AppHeader from "@/views/pages/components/layout/AppHeader";
+import PokemonCard from "@/views/pages/home/components/pokemonCard";
 
 export default {
   name: "Home",
-  components: { AppHeader },
+  components: { AppHeader, PokemonCard },
   computed: {
     allPokemons() {
       return this.$store.getters.getPokemons;

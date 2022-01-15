@@ -4,10 +4,10 @@ class PokemonRequester {
   async findAll() {
     const query = "pokemon?limit=151&offset=0'";
     const { data: pokemons } = await axios.get(query);
-    return pokemons;
+    return pokemons.results;
   }
-  async findByIdOrName(query) {
-    const { data: pokemon } = await axios.get(`/pokemon/${query}`);
+  async findByIdOrName(nameOrId) {
+    const { data: pokemon } = await axios.get(`/pokemon/${nameOrId}`);
     return pokemon;
   }
 }

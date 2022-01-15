@@ -11,12 +11,4 @@ export default {
   [mutations.SET_KEY_WORD_SEARCH_POKEMON](state, keyWord) {
     Vue.set(state.keyWordSearch, "keyWord", keyWord);
   },
-  [mutations.SET_ALL_DETAILED_POKEMONS](state, pokemon) {
-    let detailedPokemons = state.detailedPokemons;
-    if (detailedPokemons.length === 0) {
-      detailedPokemons = [];
-    }
-    detailedPokemons.push(pokemon);
-    Vue.set(state, "detailedPokemons", detailedPokemons);
-  },
 };
